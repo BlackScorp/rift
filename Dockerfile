@@ -1,8 +1,17 @@
+# Rift Builder Dockerfile
 FROM debian:12
 
-# Install minimal build dependencies
+# Install build dependencies: Vala, GTK4, LayerShell, GIO, Meson, Ninja
 RUN apt-get update && apt-get install -y \
-    build-essential meson ninja-build valac pkg-config libgtk-4-dev git \
+    build-essential \
+    meson \
+    ninja-build \
+    valac \
+    pkg-config \
+    libgtk-4-dev \
+    libglib2.0-dev \
+    libvala-0.56-dev \
+    git \
  && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app

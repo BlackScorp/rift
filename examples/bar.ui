@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <object class="GtkApplicationWindow" id="main_window">
+    <property name="title">Rift Example Bar</property>
+    <child>
+      <object class="GtkBox" id="box">
+        <property name="orientation">GTK_ORIENTATION_HORIZONTAL</property>
+        <property name="spacing">10</property>
+
+        <child>
+          <object class="GtkLabel" id="label">
+            <property name="label">Hello Rift!</property>
+          </object>
+        </child>
+
+        <child>
+          <object class="GtkButton" id="close_button">
+            <property name="label">Close</property>
+            
+          </object>
+        </child>
+
+      </object>
+    </child>
+  </object>
+</interface>

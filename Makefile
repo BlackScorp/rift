@@ -2,7 +2,7 @@
 # Default 'make' shows help
 DOCKER_IMAGE := rift-builder
 BUILD_DIR := build
-BINARY := $(BUILD_DIR)/src/rift
+BINARY := $(BUILD_DIR)/rift
 
 .PHONY: all help build run clean
 
@@ -19,15 +19,16 @@ help:
 # Build Rift inside Docker
 build:
 	@echo "==> Building Rift inside Docker..."
+	
 	docker build -t $(DOCKER_IMAGE) .
 	docker run --rm -v "$(PWD)":/app $(DOCKER_IMAGE) \
-		sh -c "meson setup $(BUILD_DIR) --buildtype=release || true && meson compile -C $(BUILD_DIR)"
+		sh -c "rm -rf build && meson setup $(BUILD_DIR) --buildtype=release || true && meson compile -C $(BUILD_DIR)"
 	@echo "==> Build complete. Binary at $(BINARY)"
 
 # Run Rift on host
 run:
 	@echo "==> Running Rift..."
-	$(BINARY)
+	$(BINARY) $(EXAMPLES)
 
 # Clean build folder
 clean:
