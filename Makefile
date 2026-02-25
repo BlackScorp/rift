@@ -28,7 +28,7 @@ build:
 # Run Rift on host
 run:
 	@echo "==> Running Rift..."
-	$(BINARY) $(EXAMPLES)
+	$(BINARY) $(EXAMPLE)
 
 # Clean build folder
 clean:
